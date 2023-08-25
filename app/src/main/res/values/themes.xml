@@ -2,9 +2,13 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.InkentiAppWhatsappClone" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/colorPrimary</item>
-         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-         <item name="colorAccent">@color/ascent</item>
+         <item name="colorPrimary">@color/colorPrimaryDark</item>
+         <item name="colorPrimaryVariant">@color/colorPrimary</item>
+         <item name="colorOnPrimary">@color/white</item>
+
+         <item name="colorSecondary">@color/colorPrimary</item>
+         <item name="colorSecondaryVariant">@color/colorPrimaryDark</item>
+         <item name="colorOnSecondary">@color/black</item>
 
     </style>
 
