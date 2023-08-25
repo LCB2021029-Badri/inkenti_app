@@ -28,6 +28,7 @@ class ViewPagerAdapter(
     }
 
     companion object{
+        //order is same as adapter setup in mainactivity
         val TAB_TITLES = arrayOf("Chats","Status","Call")
     }
 

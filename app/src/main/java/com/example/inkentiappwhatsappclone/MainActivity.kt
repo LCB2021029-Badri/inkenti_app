@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //view pager setup
         val fragmentArrayList = ArrayList<Fragment>()
         fragmentArrayList.add(ChatFragment())
         fragmentArrayList.add(StatusFragment())
