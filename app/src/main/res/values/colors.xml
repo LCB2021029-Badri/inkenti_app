@@ -2,4 +2,18 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="sendBtnColor">#1ECAD9</color>
+    <color name="friendChatColor">#E787AD</color>
+    <color name="myChatColor">#5181D5</color>
+    <color name="backgroundColor">#272B6B</color>
+    <color name="nonHighlightIconColor">#24678B</color>
+    <color name="highlightIconColor">#48B8BE</color>
+
+
+    <color name="colorPrimaryDark">#24678B</color>
+    <color name="colorPrimary">#48B8BE</color>
+    <color name="ascent">#1ECAD9</color>
+
 </resources>
