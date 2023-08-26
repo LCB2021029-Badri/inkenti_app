@@ -10,10 +10,10 @@
     <color name="backgroundColor">#272B6B</color>
     <color name="nonHighlightIconColor">#24678B</color>
     <color name="highlightIconColor">#48B8BE</color>
-    <color name="tabs">#784DC5</color>
 <!--    <color name="colorPrimaryDark">#24678B</color>-->
 <!--    <color name="colorPrimary">#48B8BE</color>-->
 <!--    <color name="ascent">#1ECAD9</color>-->
+    <color name="tabs">#5224B9</color>
 
 
     <color name="colorPrimary">#3700B2</color>
