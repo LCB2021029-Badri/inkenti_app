@@ -48,7 +48,9 @@ class NumberActivity : AppCompatActivity() {
     private fun createSnackBar(view:View){
         Snackbar.make(view,"Phone number can't be empty",Snackbar.LENGTH_INDEFINITE)
             .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_SLIDE)
-            .setBackgroundTint(Color.parseColor("#006400"))
+            .setBackgroundTint(Color.parseColor("#FF9494"))
+            .setTextColor(Color.parseColor("#EE4B28"))
+            .setActionTextColor(Color.parseColor("#000000"))
             .setAction("Edit"){
 //                Toast.makeText(this,"snackbar button pressed",Toast.LENGTH_SHORT).show()
             }
