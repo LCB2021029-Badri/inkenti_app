@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        //i f no one is logged in, go to login page
+        //since this is the first activity
+        //if no one is logged in, go to login page
         if(auth.currentUser == null){
             val intent = Intent(this@MainActivity,NumberActivity::class.java)
             startActivity(intent)

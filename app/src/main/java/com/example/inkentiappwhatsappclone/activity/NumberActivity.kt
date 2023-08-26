@@ -36,8 +36,8 @@ class NumberActivity : AppCompatActivity() {
             if(binding.etPhoneNumber.text!!.isEmpty()){
                     createSnackBar(it)
             }else{
-                var intent = Intent(this@NumberActivity,OTPActivity::class.java)
-                intent.putExtra("number",binding.etPhoneNumber.text!!)
+                val intent = Intent(this@NumberActivity,OTPActivity::class.java)
+                intent.putExtra("number",binding.etPhoneNumber.text!!.toString())
                 startActivity(intent)
             }
         }

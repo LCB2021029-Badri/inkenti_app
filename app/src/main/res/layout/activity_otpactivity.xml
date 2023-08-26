@@ -32,6 +32,7 @@
             android:text="Verify number"/>
 
         <TextView
+            android:id="@+id/tvNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Enter the OTP code to verify your phone number"/>
@@ -62,7 +63,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
-                    android:id="@+id/btnSendOTP"
+                    android:id="@+id/btnContinue"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
