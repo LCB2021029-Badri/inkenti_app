@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:padding="30dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
     tools:context=".activity.NumberActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/img_login"
+        android:layout_width="match_parent"
+        android:layout_height="222dp"
+        android:src="@drawable/ic_login" />
+
+    <LinearLayout
+        android:layout_below="@id/img_login"
+        android:layout_margin="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="Verify your Phone number"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="we will send your phone number an OTP"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="8dp"
+            android:paddingVertical="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="8dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/filledTextField"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone Number">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPhoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/btnSendOTP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Send OTP"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</RelativeLayout>
