@@ -68,10 +68,10 @@ dependencies {
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 
     //safety net
-//    implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
+    implementation ("com.google.android.gms:play-services-safetynet:18.0.1")
 
     //integrity
-//    implementation ("com.google.android.play:integrity:1.2.0")
+    implementation ("com.google.android.play:integrity:1.2.0")
 
 
 
