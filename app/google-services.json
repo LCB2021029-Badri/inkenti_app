@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "221098500174",
+    "project_id": "inkenti-app",
+    "storage_bucket": "inkenti-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221098500174:android:ee6b51ec17458bafed631f",
+        "android_client_info": {
+          "package_name": "com.example.inkentiappwhatsappclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "221098500174-ercq461tffhk92pp9r0mhf76pcl8joj2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABRuvsL_Ku_wAM38_OYMClkMyHcap_0mA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "221098500174-ercq461tffhk92pp9r0mhf76pcl8joj2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
