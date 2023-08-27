@@ -27,7 +27,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var database: FirebaseDatabase
     private lateinit var storage: FirebaseStorage
     private lateinit var selectedImg :Uri
-    private lateinit var dialog: AlertDialog.Builder
+    private lateinit var dialog: AlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,9 +35,13 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //initializing all
-        dialog = AlertDialog.Builder(this)
-            .setMessage("Updating Profile ...")
-            .setCancelable(false)
+//        val builder = AlertDialog.Builder(this)
+//        builder.setMessage("Please Wait ...")
+//        builder.setTitle("Loading")
+//        builder.setCancelable(false)
+//        dialog = builder.create()
+//        dialog.show()
+
         database = FirebaseDatabase.getInstance()
         storage = FirebaseStorage.getInstance()
         auth = FirebaseAuth.getInstance()
@@ -59,28 +63,35 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun uploadData() {
+//        dialog.show()
+        dialogbBox("Uploading Image to FB Storage","Please Wait ...")
         val reference = storage.reference.child("ProfileOfuser").child(Date().time.toString())
         reference.putFile(selectedImg).addOnCompleteListener{
             if(it.isSuccessful){
+                dialog.dismiss()
                 reference.downloadUrl.addOnSuccessListener {task ->
                     uploadInfo(task.toString())
                 }
             }
             else{
+                dialog.dismiss()
                 createSnackBar(binding.root,"failed to upload image to FB storage","Try Again")
             }
         }
     }
 
     private fun uploadInfo(imgUrl: String) {
+        dialogbBox("Uploading Data to FB Realtime DB","Please Wait ...")
         val user = UserModel(auth.uid.toString(),binding.etUserName.text.toString(),auth.currentUser!!.phoneNumber.toString(),imgUrl)
         database.reference.child("users")
             .setValue(user)
             .addOnSuccessListener {
+                dialog.dismiss()
                 startActivity(Intent(this@ProfileActivity,MainActivity::class.java))
                 finish()
             }
             .addOnFailureListener {
+                dialog.dismiss()
                 createSnackBar(binding.root,"failed to upload data to Realtime DB","Try Again")
             }
     }
@@ -115,6 +126,15 @@ class ProfileActivity : AppCompatActivity() {
 //                Toast.makeText(this,"snackbar button pressed",Toast.LENGTH_SHORT).show()
             }
             .show()
+    }
+
+    private fun dialogbBox(title:String,message:String){
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage(message)
+        builder.setTitle(title)
+        builder.setCancelable(false)
+        dialog = builder.create()
+        dialog.show()
     }
 
 
