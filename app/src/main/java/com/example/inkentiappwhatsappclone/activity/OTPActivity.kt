@@ -42,7 +42,7 @@ class OTPActivity : AppCompatActivity() {
         dialog.show()
 
         //to set text in tv
-        val phoneNumber = "+91-"+intent.getStringExtra("number")
+        val phoneNumber = "+91"+intent.getStringExtra("number")
         binding.tvNum.text = "Enter the OTP code sent to " +phoneNumber
 
         //to send otp
@@ -52,7 +52,6 @@ class OTPActivity : AppCompatActivity() {
             .setActivity(this)
             .setCallbacks(object : OnVerificationStateChangedCallbacks(){
                 override fun onVerificationCompleted(p0: PhoneAuthCredential) {
-                    TODO("Not yet implemented")
                 }
 
                 override fun onVerificationFailed(p0: FirebaseException) {
