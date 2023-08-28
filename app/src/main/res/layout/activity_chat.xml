@@ -11,6 +11,7 @@
         tools:listitem="@layout/chat_msg_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_above="@id/textAndSend"/>
 
         <RelativeLayout
