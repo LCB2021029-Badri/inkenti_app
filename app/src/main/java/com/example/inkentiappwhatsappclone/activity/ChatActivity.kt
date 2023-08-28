@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Message
 import com.example.inkentiappwhatsappclone.R
+import com.example.inkentiappwhatsappclone.adapter.MessageAdapter
 import com.example.inkentiappwhatsappclone.databinding.ActivityChatBinding
 import com.example.inkentiappwhatsappclone.model.MessageModel
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.util.Date
 
 class ChatActivity : AppCompatActivity() {
@@ -18,6 +22,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var receiverUid:String
     private lateinit var senderUidMergedReceiverUid:String
     private lateinit var receiverUidMergedSenderUid:String
+    private lateinit var list:ArrayList<MessageModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +34,7 @@ class ChatActivity : AppCompatActivity() {
         receiverUid = intent.getStringExtra("uid")!!
         senderUidMergedReceiverUid = senderUid+receiverUid
         receiverUidMergedSenderUid = receiverUid+senderUid
+        list = ArrayList()
 
         binding.btnSend.setOnClickListener {
             if(binding.etMessage.text.isEmpty()){
@@ -60,6 +66,28 @@ class ChatActivity : AppCompatActivity() {
             }
 
         }
+
+        database.reference.child("chats")
+            .child(senderUidMergedReceiverUid)
+            .child("message")
+            .addValueEventListener(object :ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    list.clear()
+                    for(snapshot1 in snapshot.children){
+                        val data = snapshot1.getValue(MessageModel::class.java)
+                        list.add(data!!)
+                    }
+
+                    binding.rvChat.adapter = MessageAdapter(this@ChatActivity,list)
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    //toast message
+                }
+
+            })
+
 
     }
 }
