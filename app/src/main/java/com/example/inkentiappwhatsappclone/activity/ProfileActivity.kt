@@ -84,6 +84,7 @@ class ProfileActivity : AppCompatActivity() {
         dialogbBox("Uploading Data to FB Realtime DB","Please Wait ...")
         val user = UserModel(auth.uid.toString(),binding.etUserName.text.toString(),auth.currentUser!!.phoneNumber.toString(),imgUrl)
         database.reference.child("users")
+            .child(auth.uid.toString())
             .setValue(user)
             .addOnSuccessListener {
                 dialog.dismiss()
