@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.inkentiappwhatsappclone.R
+import com.example.inkentiappwhatsappclone.adapter.ChatAdapter
 import com.example.inkentiappwhatsappclone.databinding.FragmentChatBinding
 import com.example.inkentiappwhatsappclone.model.UserModel
 import com.google.firebase.auth.FirebaseAuth
@@ -33,11 +34,15 @@ class ChatFragment : Fragment() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     userList.clear()
                     for(snapshot1 in snapshot.children){
-                        val user = snapshot.getValue(UserModel::class.java)
+                        val user = snapshot1.getValue(UserModel::class.java)
                         if(user!!.uid != FirebaseAuth.getInstance().uid){
                             userList.add(user)
                         }
                     }
+
+                    //update the RV adapter with the new userList if data changes
+                    binding.userListRecyclerView.adapter = ChatAdapter(requireContext(),userList)
+
                 }
 
                 override fun onCancelled(error: DatabaseError) {
