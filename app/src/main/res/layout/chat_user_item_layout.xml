@@ -27,12 +27,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             android:text="Name of User"/>
         <TextView
             android:id="@+id/recentMsg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="Recent Chat"/>
 
     </LinearLayout>
